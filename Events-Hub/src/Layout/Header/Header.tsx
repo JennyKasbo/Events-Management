@@ -45,12 +45,12 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div className={`w-full fixed top-0 left-0 z-50 ${theme === 'dark' ? 'bg-slate-900 border-b border-slate-700 text-slate-50' : 'bg-white border-b border-slate-200 text-slate-900'} px-4 py-3 sm:px-8`} dir={ "ltr"}>
+    <div className={`w-full fixed top-0 left-0 z-50 ${theme === 'dark' ? 'bg-slate-900 border-b border-slate-700 text-slate-50' : 'bg-white border-b border-slate-200 text-slate-900'} px-4 py-2 sm:px-8`} dir={ "ltr"}>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-3">
-          <img src={L} alt="logo" className="w-[110px] h-auto sm:w-[120px]" />
+          <img src={L} alt="logo" className="w-[96px] h-auto sm:w-[108px]" />
           {isEventsRoute ? (
-            <div className={`flex items-center gap-2 rounded-xl border px-3 py-2 ${theme === 'dark' ? 'border-slate-700 bg-slate-800' : 'border-slate-200 bg-slate-50'}`}>
+            <div className={`flex items-center gap-2 rounded-xl border px-3 py-1.5 ${theme === 'dark' ? 'border-slate-700 bg-slate-800' : 'border-slate-200 bg-slate-50'}`}>
               <input
                 type="text"
                 value={searchValue}
@@ -115,7 +115,7 @@ const Header: React.FC = () => {
             {t('welcome')} {isAdmin ? t('admin') : t('user')}
           </span>
           <button
-            className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition ${theme === 'dark' ? 'bg-purple-800 text-white hover:bg-purple-700' : 'bg-purple-900 text-white hover:bg-purple-700'}`}
+            className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-semibold transition ${theme === 'dark' ? 'bg-purple-800 text-white hover:bg-purple-700' : 'bg-purple-900 text-white hover:bg-purple-700'}`}
             onClick={handleLogoutClick}
           >
             <FaSignOutAlt className="text-base" />

@@ -110,7 +110,7 @@ export const EventsList = ({ onSelectEvent }: EventsListProps) => {
             </span>
             <div
               className="flex items-center gap-2"
-              dir={language === "ar" ? "rtl" : "ltr"}
+              dir={language === "ar" ? "ltr" : "rtl"}
             >
               <button
                 type="button"

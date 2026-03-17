@@ -7,6 +7,7 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import Error from './Pages/Error/Error';
 import Events from './Pages/Events/Events';
+import EventDetails from './Pages/Events/EventDetails';
 import CreateEvent from './Pages/Events/CreateEvent';
 import Logs from './Pages/Logs/Logs';
 import Layout from './Layout/Layout/Layout';
@@ -43,6 +44,7 @@ const App: React.FC = () => {
         <Route index element={<Navigate to="/events" replace />} />
         <Route path="events" element={<Events />} />
         <Route path="events/create" element={<CreateEvent />} />
+        <Route path="events/:eventId" element={<EventDetails />} />
         <Route path="logs" element={<Logs />} />
       </Route>
 
