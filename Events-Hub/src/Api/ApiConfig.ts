@@ -1,6 +1,8 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 
-const API_BASE_URL: string = process.env.REACT_APP_API_URL || "/api";
+const API_BASE_URL: string =
+  process.env.REACT_APP_API_URL ||
+  (process.env.NODE_ENV === "development" ? "/" : "/api");
 
 const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
