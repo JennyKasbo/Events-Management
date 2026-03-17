@@ -24,7 +24,6 @@ const PopUp: React.FC<PopUpProps> = ({
   onConfirm 
 }) => {
   const { language, t } = useThemeLocale();
-  const isRTL = language === 'ar';
 
   if (!isShow) return null;
 
@@ -39,11 +38,7 @@ const PopUp: React.FC<PopUpProps> = ({
   if (logout) {
     popupMessage = t('logoutConfirm');
   } else if (del) {
-    popupMessage = (
-      <>
-        {t('logoutConfirm')} <span className="font-bold">Delete</span>
-      </>
-    );
+    popupMessage = t('deleteConfirm');
   } else if (messages.length > 0) {
     popupMessage = messages.map((msg, i) => (
       <span key={i} className="popup-msg-item">
@@ -59,7 +54,7 @@ const PopUp: React.FC<PopUpProps> = ({
         onClick={handleCancel}
       />
       <div className="fixed inset-0 flex items-center justify-center z-50">
-        <div className="w-[min(92vw,450px)] bg-slate-950/95 border border-purple-400/40 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.35)] p-6 text-center" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="w-[min(92vw,450px)] bg-slate-950/95 border border-purple-400/40 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.35)] p-6 text-center" dir={language === "ar" ? "ltr" : "rtl"}>
           <h3 className="text-lg font-bold text-slate-100 mb-4 text-center">{popupMessage}</h3>
           <div className="flex justify-center gap-4">
             <button

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaUser, FaEnvelope, FaLock, FaCalendarAlt, FaVenusMars } from 'react-icons/fa';
 import logo from '../../../Assets/Images/l2.png';
-import { RegisterPayload } from '../Api';
+import { RegisterPayload } from '../api/RegisterApi';
 import { useThemeLocale } from '../../../Context/ThemeLocaleContext';
 
 interface RegisterFormProps {

@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { registerUser, RegisterPayload } from './Api';
+import { registerUser, RegisterPayload } from '../api/RegisterApi';
 
 export const useRegister = () => {
     const [loading, setLoading] = useState(false);

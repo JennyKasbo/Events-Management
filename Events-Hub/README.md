@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# Events Hub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Modern event management frontend built with React, TypeScript, and Tailwind CSS. It supports role‑aware experiences for admins and users, including event creation, registrations, approvals, and audit logs.
 
-## Available Scripts
+## Highlights
+- Role-aware UI for **Admin** and **User** flows
+- Feature-based architecture under `src/Features`
+- Event discovery with filters, search, and pagination
+- Admin approvals with detailed submission view
+- Audit logs viewer for admins
+- Light/Dark theme + EN/AR localization
+- Fully responsive UI for mobile and desktop
 
-In the project directory, you can run:
+## Tech Stack
+- React 19 + TypeScript
+- Tailwind CSS
+- React Router
+- Axios
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
+- Node.js 18+
+- npm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Install
+```bash
+npm install
+```
 
-### `npm test`
+### Run (Development)
+```bash
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Build
+```bash
+npm run build
+```
 
-### `npm run build`
+## Environment
+The app uses CRA proxy in `package.json`:
+```json
+"proxy": "https://events-management-api-production.up.railway.app"
+```
+If you want a different API base URL, update `proxy` or set `API_BASE_URL` in `src/Api/ApiConfig.ts`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
+```
+src/
+  Api/
+  Assets/
+  Components/
+  Context/
+  Features/
+    Events/
+    Logs/
+  Layout/
+  Pages/
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Key Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Events (Users)**
+- Browse upcoming events
+- View event details
+- Register with LinkedIn profile, education level, and motivation
 
-### `npm run eject`
+**Events (Admins)**
+- Create and delete events
+- Review submissions
+- Approve registrations (PENDING → APPROVED)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Logs (Admins)**
+- View audit logs from `/audit-logs`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## API Endpoints (Current Integration)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Events**
+- `GET /events?page=1&limit=10&search=...`
+- `POST /events`
+- `DELETE /events/:id`
+- `GET /events/:id`
+- `GET /events/upcoming?page=1&limit=20&search=&type=&dateFrom=&dateTo=`
+- `GET /events/attended`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Registrations**
+- `POST /registrations/:eventId`
+- `GET /registrations/event/:eventId?page=1&limit=10`
+- `PATCH /registrations/:id/approve`
 
-## Learn More
+**Logs**
+- `GET /audit-logs`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Scripts
+- `npm start` – start dev server
+- `npm run build` – production build
+- `npm test` – run tests
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Notes
+- Authentication uses JWT stored in localStorage/sessionStorage.
+- Localization and theme are managed in `src/Context/ThemeLocaleContext.tsx`.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+MIT (adjust if needed)

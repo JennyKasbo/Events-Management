@@ -1,4 +1,4 @@
-import { safeRequest } from '../../Api/ApiConfig';
+import { safeRequest } from '../../../Api/ApiConfig';
 
 export interface RegisterPayload {
     firstName: string;

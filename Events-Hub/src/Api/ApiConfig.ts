@@ -2,7 +2,6 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosR
 
 const API_BASE_URL: string = ""; 
 
-// إنشاء نسخة axios مع تحديد النوع
 const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -11,7 +10,6 @@ const api: AxiosInstance = axios.create({
   },
 });
 
-// Interceptor لإضافة التوكن
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const token = localStorage.getItem("token") || sessionStorage.getItem("token");
@@ -24,11 +22,6 @@ api.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-
-/**
- * تعريف واجهة الاستجابة الموحدة (اختياري حسب نظام السيرفر عندك)
- * قمت بإضافتها لتسهيل التعامل مع الـ Data في الـ Context
- */
 export interface ApiResponse<T = any> {
   data: T;
   code: number;
@@ -47,10 +40,9 @@ export const safeRequest = async <T = any>(
       url: url,
       data: data,
       ...config,
-      // إذا كانت البيانات المرسلة FormData، نحذف Content-Type ليقوم المتصفح بتحديده تلقائياً مع الـ boundary
       headers: data instanceof FormData ? { ...config?.headers, 'Content-Type': 'multipart/form-data' } : config?.headers
     });
-    
+
     return response.data;
   } catch (error: any) {
     const errorMessage = error.response?.data?.message || "حدث خطأ في الاتصال بالسيرفر";
@@ -58,7 +50,6 @@ export const safeRequest = async <T = any>(
     if (error.response?.status === 401) {
       localStorage.removeItem("token");
       sessionStorage.removeItem("token");
-      // نتحقق من وجود window لتجنب أخطاء الـ SSR
       if (typeof window !== 'undefined') {
         window.location.href = "/login";
       }

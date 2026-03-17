@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRegister } from "../../Features/Register/useRegister";
+import { useRegister } from "../../Features/Register/hooks/useRegister";
 import RegisterForm from "../../Features/Register/Components/RegisterForm";
-import { RegisterPayload } from "../../Features/Register/Api";
+import { RegisterPayload } from "../../Features/Register/api/RegisterApi";
 import { detectSuspiciousPatterns } from "../../Utils/Validators";
 
 const Register: React.FC = () => {
@@ -16,7 +16,7 @@ const Register: React.FC = () => {
         password: "",
         confirmPassword: "",
         dateOfBirth: "",
-        gender: "",
+        gender: "FEMALE",
     });
 
     const handleChange = (field: keyof RegisterPayload | 'confirmPassword', value: string) => {
