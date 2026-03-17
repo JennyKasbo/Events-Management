@@ -1,0 +1,18 @@
+.main-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #F5F7FB;
+    direction: rtl;
+}
+
+.layout-content {
+    flex: 1;
+    margin-right: 280px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.page-container {
+    padding: 100px 30px 30px 30px; 
+    min-height: calc(100vh - 70px);
+}

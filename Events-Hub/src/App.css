@@ -1,0 +1,17 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+  
+}
+
+.error-msg {
+    margin: 14px 0;
+    padding: 10px 12px;
+    background: rgba(218, 73, 92, 0.2);
+    border: 1px solid rgba(218, 73, 92, 0.45);
+    border-radius: 10px;
+    color: #ffc2d0;
+    text-align: center;
+    font-size: 13px;
+}
