@@ -9,6 +9,7 @@ Modern event management frontend built with React, TypeScript, and Tailwind CSS.
 - Admin approvals with detailed submission view
 - Audit logs viewer for admins
 - Light/Dark theme + EN/AR localization
+- Input validation with suspicious pattern detection and strong password enforcement
 - Fully responsive UI for mobile and desktop
 
 ## Tech Stack
@@ -100,6 +101,7 @@ src/
 ## Notes
 - Authentication uses JWT stored in localStorage/sessionStorage.
 - Localization and theme are managed in `src/Context/ThemeLocaleContext.tsx`.
+- Registration validates inputs for suspicious patterns and requires a strong password.
 
 ## License
 MIT (adjust if needed)

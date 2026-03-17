@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useRegister } from "../../Features/Register/hooks/useRegister";
 import RegisterForm from "../../Features/Register/Components/RegisterForm";
 import { RegisterPayload } from "../../Features/Register/api/RegisterApi";
-import { detectSuspiciousPatterns } from "../../Utils/Validators";
+import { detectSuspiciousPatterns, isStrongPassword } from "../../Utils/Validators";
 
 const Register: React.FC = () => {
     const navigate = useNavigate();
@@ -35,6 +35,11 @@ const Register: React.FC = () => {
 
         if (formData.password !== formData.confirmPassword) {
             setError("Password and confirm password do not match.");
+            return;
+        }
+
+        if (!isStrongPassword(formData.password)) {
+            setError("Password must be at least 8 characters and include upper/lowercase, a number, and a symbol.");
             return;
         }
 
