@@ -73,7 +73,7 @@ This project is ready for Netlify deployment using the included `netlify.toml` a
 - The frontend calls `/api/*` (from `.env.production`).
 - Netlify redirects `/api/*` to the backend using `netlify.toml`.
 
-If a deployment exists, document it here (for example: `https://your-deployment.example.com`).
+Deployed URL: https://eventita.netlify.app
 
 ## Project Structure
 ```
